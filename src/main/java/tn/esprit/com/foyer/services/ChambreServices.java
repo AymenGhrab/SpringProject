@@ -57,5 +57,13 @@ public class ChambreServices implements IChambreService{
         return b;
     }
 
+    public List<Chambre> getChambresParNomBloc ( String nomBloc )
+    {
+
+        Bloc b = blocRepository.findByNomBloc(nomBloc);
+        List<Chambre> chambres = b.getChambres().stream().toList();
+        return chambres;
+    }
+
 
 }

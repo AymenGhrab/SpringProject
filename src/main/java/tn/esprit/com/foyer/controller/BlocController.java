@@ -3,6 +3,7 @@ package tn.esprit.com.foyer.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.com.foyer.entities.Bloc;
+import tn.esprit.com.foyer.entities.Foyer;
 import tn.esprit.com.foyer.services.BlocServices;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 @RequestMapping("/bloc")
 public class BlocController {
     BlocServices blocServices;
-    @GetMapping("/retrieve-all-bloc")
+    @GetMapping("/retrieveallbloc")
     public List<Bloc> retrieveAllBloc(){
         return blocServices.retrieveAllBlocs();
     }
@@ -30,4 +31,8 @@ public class BlocController {
     public void deleteBloc(@PathVariable("bloc-id") Long blocId){
         blocServices.removeBloc(blocId);
     }
+
+    @PostMapping ("/addfoyerwithbloc")
+    public void addfoyerwithbloc (@RequestBody Foyer foyer)
+    {    blocServices.addFoyerWithBloc(foyer) ; }
 }

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.com.foyer.entities.Reservation;
 import tn.esprit.com.foyer.services.ReservationServices;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -31,5 +32,9 @@ public class ReservationController {
     @DeleteMapping("/delete-reservation/{reservation-id}")
     public void deleteReservation(@PathVariable("reservation-id") Long reservationId){
         reservationServices.removeReservation(reservationId);
+    }
+    @GetMapping("/reservationParAnnee/{dateDebut}/{dateFin}")
+    public List<Reservation> getReservationParAnneeUniversitaire(@PathVariable("dateDebut") Date dateDebut, @PathVariable("dateFin") Date dateFin) {
+        return reservationServices.getReservationParAnneeUniversitaire(dateDebut, dateFin);
     }
 }

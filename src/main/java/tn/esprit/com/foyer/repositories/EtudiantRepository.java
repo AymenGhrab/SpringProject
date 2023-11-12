@@ -8,5 +8,5 @@ import tn.esprit.com.foyer.entities.Etudiant;
 public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
 
 
-
+  public Etudiant findByNomEtAndPrenomEt (String nom,String prenom) ;
 }

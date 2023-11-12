@@ -15,6 +15,11 @@ import java.util.List;
 public class FoyerServices implements IFoyerService{
     FoyerRepository foyerRepository;
 
+
+
+
+
+
     @Override
     public List<Foyer> retrieveAllFoyers() {
         return foyerRepository.findAll();
@@ -41,6 +46,8 @@ public class FoyerServices implements IFoyerService{
         f.setArchived(true);
         foyerRepository.save(f);
     }
+
+
 
     @Override
     public void deleteFoyer(long idFoyer) {

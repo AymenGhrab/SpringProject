@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.com.foyer.entities.Chambre;
 import tn.esprit.com.foyer.entities.Reservation;
 import tn.esprit.com.foyer.repositories.ReservationRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -14,6 +16,16 @@ import java.util.List;
 @AllArgsConstructor
 public class ReservationServices implements IReservationService {
     ReservationRepository reservationRepository;
+
+    public List<Reservation> getReservationParAnneeUniversitaire(Date dateDebut , Date dateFin )
+
+    {
+
+
+        return reservationRepository.findByAnneeReservationBetween(dateDebut, dateFin);
+    }
+
+
 
     @Override
     public List<Reservation> retrieveAllReservation() {

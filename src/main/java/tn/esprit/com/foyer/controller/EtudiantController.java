@@ -29,4 +29,8 @@ public class EtudiantController {
     public void removeEtudiant(@PathVariable("etudiant-id") Long etudiantId) {
         etudiantService.removeEtudiant(etudiantId);
     }
+
+    @PutMapping ("/affecteretudiant/{nomEt}/{prenomEt}/{idReservation}")
+    public void affecterEtudiantAReservation (@PathVariable ("nomEt")String nomEt,@PathVariable  ("prenomEt")String prenomEt,@PathVariable ("idReservation") String idReservation)
+    {    etudiantService.affecterEtudiantAReservation(nomEt,prenomEt,idReservation) ;}
 }
